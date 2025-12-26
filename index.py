@@ -29,7 +29,7 @@ def display_tasks(tasks):
         return
     print("\nYour To-Do List:")
     for i, task in enumerate(tasks, 1):
-        status = "✔️" if task["completed"] else "❌"
+        status = "!" if task["completed"] else "*"
         print(f"{i}. {task['title']} [{status}]")
 
 
@@ -39,9 +39,9 @@ def add_task(tasks):
     if title:
         tasks.append({"title": title, "completed": False})
         save_tasks(tasks)
-        print("✅ Task added successfully!")
+        print(" Task added successfully!")
     else:
-        print("⚠️ Task cannot be empty.")
+        print(" Task cannot be empty.")
 
 
 def delete_task(tasks):
@@ -52,11 +52,11 @@ def delete_task(tasks):
         if 1 <= num <= len(tasks):
             removed = tasks.pop(num - 1)
             save_tasks(tasks)
-            print(f"🗑️ Deleted task: {removed['title']}")
+            print(f" Deleted task: {removed['title']}")
         else:
-            print("⚠️ Invalid task number.")
+            print(" Invalid task number.")
     except ValueError:
-        print("⚠️ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 
 def mark_completed(tasks):
@@ -67,11 +67,11 @@ def mark_completed(tasks):
         if 1 <= num <= len(tasks):
             tasks[num - 1]["completed"] = True
             save_tasks(tasks)
-            print(f"✅ Task marked as completed: {tasks[num - 1]['title']}")
+            print(f" Task marked as completed: {tasks[num - 1]['title']}")
         else:
-            print("⚠️ Invalid task number.")
+            print(" Invalid task number.")
     except ValueError:
-        print("⚠️ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 
 def main():
@@ -97,10 +97,10 @@ def main():
         elif choice == "4":
             mark_completed(tasks)
         elif choice == "5":
-            print("👋 Exiting... Have a productive day!")
+            print("Exiting... Have a productive day!")
             break
         else:
-            print("⚠️ Invalid choice, please try again.")
+            print(" Invalid choice, please try again.")
 
 
 if __name__ == "__main__":
